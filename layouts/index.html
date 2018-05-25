@@ -1,0 +1,21 @@
+{{ define "container" }}
+<ul class="home post-list">
+    {{/* (index .Site.Paginate) */}}
+    {{ $paginator := .Paginate (where (where .Data.Pages "Type" "post") ".Params.hiddenfromhomepage" "!=" true) }}
+    {{ range $paginator.Pages }}
+      {{ .Render "summary" }}
+    {{ end }}
+</ul>
+{{ end }}
+
+{{ define "pagination" }}
+{{ $paginator := .Paginate (where (where .Data.Pages "Type" "post") ".Params.hiddenfromhomepage" "!=" true) }}
+<div class="paginator">
+    {{ with $paginator.Prev }}
+    <a class="prev" href="{{ .URL }}">Prev</a>
+    {{- end}}
+    {{ with .PrevInSection }}
+    <a class="next" href="{{ .URL }}">Next</a>
+    {{- end}}
+</div>
+{{ end }}

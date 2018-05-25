@@ -1,0 +1,5 @@
+<div class="copyright">
+    {{ $hexoURL := "https://hexo.io/" }}
+    {{ $apolloURL := "https://github.com/pinggod/hexo-theme-apollo" }}
+    <p>&copy; {{ now.Format "2006"}} <a href="/">{{if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}{{ .Site.Author.name | safeHTML }}{{ end }}</a>, powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a> and apollo</p>
+</div>

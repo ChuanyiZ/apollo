@@ -1,0 +1,22 @@
+<li class="post-list-item">
+    <article class="post-block">
+        <h2 class="post-title"><a href="{{ .URL }}" class="post-title-link">{{ .Title }}</a></h2>
+        <div class="post-info">
+            {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+            {{- with .Params.from -}}
+                <a href="{{ . }}" class="post-from", target="_blank">Original Link</a>
+            {{- end -}}
+            {{- with .Params.categories -}}
+              <div class="post-category">
+                {{ range . }}
+                  <a href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }} </a>
+                {{ end }}
+              </div>
+            {{- end -}}
+        </div>
+        <div class="post-content">
+            {{ .Summary }}
+        </div>
+        <a href="{{ .URL }}" class="read-more">more</a>
+    </article>
+</li>

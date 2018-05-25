@@ -1,0 +1,19 @@
+{{ define "container" }}
+<div class="archive">
+  {{ range .Data.Pages.GroupByDate "2006" }}
+    <h2 class="archive-year">{{ .Key }}</h2>
+    {{ range .Pages }}
+    <div class="post-item">
+      <div class="post-info">
+            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+        </div>
+      <a class="post-title-link" href="{{ .Permalink }}">{{ .Title }}</a>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}
+
+{{ define "pagination" }}
+
+{{ end }}
