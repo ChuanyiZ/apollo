@@ -6,9 +6,13 @@
 <body>
     <div class="wrap">
         <header>
-            <a href="" class="logo-link">
-                <img src="/favicon.png" alt="logo">
-            </a>
+            <div class="logo-link">
+                <a href="/">
+                    <img src="/favicon.png" alt="logo">
+                    
+                </a>
+                <span>{{- .Site.Title -}}</span>
+            </div>
             {{ partial "nav.html" . }}
         </header>
         <main class="container">

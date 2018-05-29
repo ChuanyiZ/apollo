@@ -24,11 +24,15 @@
 
 {{ define "pagination" }}
 <div class="paginator">
-    {{ with .NextInSection }}
-    <a class="prev" href="{{ .URL }}">{{ .Title }}</a>
-    {{- end}}
-    {{ with .PrevInSection }}
-    <a class="next" href="{{ .URL }}">{{ .Title }}</a>
-    {{- end}}
+    <div class="prev">
+        {{ with .PrevInSection }}
+        <a href="{{ .URL }}"><span>{{ .Title }}</span></a>
+        {{- end}}
+    </div>
+    <div class="next">
+        {{ with .NextInSection }}
+        <a href="{{ .URL }}"><span>{{ .Title }}</span></a>
+        {{- end}}
+    </div>
 </div>
 {{ end }}
