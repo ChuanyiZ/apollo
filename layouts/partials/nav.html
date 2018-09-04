@@ -1,8 +1,23 @@
 <ul class="nav nav-list">
-  {{ $currentPage := . }}
-  {{ range .Site.Menus.main -}}
-    <li class="nav-list-item">
-      <a class="nav-list-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main -}}
+        <li class="nav-list-item">
+            <a class="nav-list-link {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{ end }}" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+        </li>
+    {{- end }}
+    {{ if .Site.IsMultiLingual }}
+    <li  class="nav-list-item">
+    <div class="dropdown">
+        <!-- <button onclick="myFunction()" class="dropbtn"><img src="translate.svg"></button> -->
+        <input onclick="myFunction()" class="dropbtn" type="image" src="/translate.svg" title="translate" />
+        <div id="myDropdown" class="dropdown-content">
+            {{ range $.Site.Home.AllTranslations }}
+            {{ if not (eq .Language $.Site.Language) }}
+                <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
     </li>
-  {{- end }}
+    {{end}}
 </ul>

@@ -14,6 +14,16 @@
                 {{ end }}
               </div>
             {{- end -}}
+            {{ if .IsTranslated }}
+            <h4>{{ i18n "translations" }}</h4>
+            <ul>
+                {{ range .Translations }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
+                </li>
+                {{ end}}
+            </ul>
+            {{ end }}
         </div>
         <div class="post-content">
             {{ .Content }}

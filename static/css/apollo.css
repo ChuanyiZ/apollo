@@ -43,7 +43,6 @@ dfn {
 }
 
 h1 {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
     font-weight: 900;
     margin: 0.67em 0
 }
@@ -205,7 +204,6 @@ body {
 
 p {
     font-size: 1.2em;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
 }
 
 ul.nav,ul.post-list {
@@ -215,7 +213,6 @@ ul.nav,ul.post-list {
 }
 
 ul {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
     margin: 1rem 0
 }
 
@@ -270,7 +267,10 @@ table tbody td {
 }
 
 header {
-    min-height: 60px
+    min-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
 }
 
 header .logo-link {
@@ -280,28 +280,38 @@ header .logo-link {
 }
 
 header .nav {
-    float: right;
-    left: 80px
+    /*float: right;
+    left: 80px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo-link img {
     height: 60px
 }
 
+header .logo-link a {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 header .logo-link span {
     margin: 0 1.5em;
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
     font-weight: 700;
     font-size: 1.5em;
+    text-align: center;
 }
 
 header .nav-list-item {
+    text-align: center;
     display: inline-block;
-    padding: 19px 10px
+    padding: 19px 10px;
 }
 
 header .nav-list-item a {
-    font-size: 16px;
+    font-size: 1em;
     line-height: 1.4
 }
 
@@ -327,7 +337,9 @@ header .nav-list-item a {
 }
 
 .home.post-list .read-more {
-    color: #42b983
+    color: #42b983;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 .archive {
@@ -406,6 +418,10 @@ header .nav-list-item a {
 
 }
 
+.post-content {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
+}
+
 .post-content h2,.post-content h3,.post-content h4,.post-content h5,.post-content h6 {
     position: relative;
     margin: 1em 0
@@ -431,6 +447,10 @@ header .nav-list-item a {
 
 .post-content h4,.post-content h5,.post-content h6 {
     font-size: 18px
+}
+
+.post-content ul {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
 }
 
 .post-content a {
@@ -669,6 +689,39 @@ pre .coffeescript .javascript,pre .javascript .xml,pre .tex .formula,pre .xml .j
     opacity: 0.5
 }
 
+ul.pagination {
+    text-align: center;
+}
+
+ul.pagination li {
+    display: inline-block;
+}
+
+ul.pagination li a {
+    border-radius: 4px;
+    border-bottom: 4px solid #3aa373;
+    background-color: #4fc08d;
+    min-width: 1em;
+    padding: 4px 12px;
+    color: #fff;
+    display: inline-block;
+}
+
+ul.pagination li a:hover {
+    background-color: #22bd77;
+}
+
+ul.pagination li.disabled a {
+    background-color: #999;
+    border-bottom-color: #999;
+    cursor: not-allowed;
+}
+
+ul.pagination li.active a {
+    background-color: #3aa373;
+    border-bottom-color: #3aa373;
+}
+
 .paginator {
     margin: 4em 0;
     text-align: center;
@@ -798,7 +851,8 @@ main.container {
     }
 
     header {
-        padding: 20px 0
+        padding: 20px 0;
+        display: block;
     }
 
     header .logo-link, header ul.nav.nav-list {
@@ -859,3 +913,60 @@ footer .copyright a:hover {
     font-weight: normal;
     font-style: normal
 }
+
+@font-face {
+    font-family: "Latin Italic Serif";
+    src: local("Georgia Italic"),local("Times New Roman Italic"),local(Georgia-Italic),local(TimesNewRomanPS-ItalicMT),local(Times-Italic)
+}
+
+em:lang(zh), em:lang(ja) {
+    font-style: normal;
+    font-family: "Numeral LF Italic Serif","Latin Italic Serif", Baskerville, Georgia, "Liberation Serif", "Kaiti SC", STKaiti, "AR PL UKai CN", "AR PL UKai HK", "AR PL UKai TW", "AR PL UKai TW MBE", "AR PL KaitiM GB", KaiTi, KaiTi_GB2312, DFKai-SB, "TW\-Kai", serif;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10%;
+    padding: 0.2em;
+    height: 1em;
+    border: 1px solid #4fc08d;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    border-color: #4fc08d;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /*min-width: 160px;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+    border: 1px solid #4fc08d;
+    border-radius: 5%;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    border-radius: inherit;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #4fc08d}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

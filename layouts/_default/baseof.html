@@ -7,11 +7,10 @@
     <div class="wrap">
         <header>
             <div class="logo-link">
-                <a href="/">
+                <a href="{{ "/" | absLangURL }}">
                     <img src="/favicon.png" alt="logo">
-                    
+                    <span>{{- .Site.Title -}}</span>
                 </a>
-                <span>{{- .Site.Title -}}</span>
             </div>
             {{ partial "nav.html" . }}
         </header>
