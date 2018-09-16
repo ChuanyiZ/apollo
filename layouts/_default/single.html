@@ -3,7 +3,7 @@
     <article class="post-block">
         <h1 class="post-title">{{ .Title }}</h1>
         <div class="post-info">
-            {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+            <div > {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}} {{- with .Params.tags -}}&nbsp;&nbsp;|&nbsp;&nbsp;{{- range . -}}<a class="post-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;&nbsp;{{- end -}}{{- end -}} </div>
             {{- with .Params.from -}}
                 <a href="{{ . }}" class="post-from", target="_blank">Original Link</a>
             {{- end -}}
@@ -15,15 +15,17 @@
               </div>
             {{- end -}}
             {{ if .IsTranslated }}
-            <h4>{{ i18n "translations" }}</h4>
-            <ul>
-                {{ range .Translations }}
-                <li>
-                    <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }} ({{ i18n "wordCount" . }}){{ end }}</a>
-                </li>
-                {{ end}}
-            </ul>
-            {{ end }}
+            <div class="post-translations">
+                <!-- <h4 >{{ i18n "translations" }}</h4> -->
+                <ul >
+                    {{- range .Translations -}}
+                    <li>
+                        <a href="{{ .Permalink }}" title="{{ .Title }}">{{ i18n .Lang }}</a>
+                    </li>
+                    {{- end -}}
+                </ul>
+            </div>
+            {{- end -}}
         </div>
         <div class="post-content">
             {{ .Content }}

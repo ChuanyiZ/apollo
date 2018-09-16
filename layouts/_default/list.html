@@ -5,9 +5,9 @@
     {{ range .Pages }}
     <div class="post-item">
       <div class="post-info">
-            {{ .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") }}
+            {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
         </div>
-      <a class="post-title-link" href="{{ .Permalink }}">{{ .Title }}</a>
+      <a class="post-title-link" href="{{ .Permalink }}">{{ .Title }}</a> {{- with .Params.tags -}} {{- range . -}}<a class="post-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;&nbsp;{{- end -}}{{- end -}}
     </div>
     {{ end }}
   {{ end }}

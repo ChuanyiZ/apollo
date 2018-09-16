@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -203,7 +208,7 @@ body {
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 ul.nav,ul.post-list {
@@ -235,6 +240,14 @@ code {
     color: #e96900;
     border-radius: 2px;
     white-space: inherit
+}
+
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: none;
+    border: none;
+    color: #515151;
 }
 
 iframe,video {
@@ -337,9 +350,12 @@ header .nav-list-item a {
 }
 
 .home.post-list .read-more {
+    color: inherit;
+    font-size: 1.1em;
+}
+
+.home.post-list .read-more:hover {
     color: #42b983;
-    font-size: 1.2em;
-    font-weight: 700;
 }
 
 .archive {
@@ -392,6 +408,21 @@ header .nav-list-item a {
     margin-left: 0.5rem
 }
 
+a.post-tag {
+    color: #2c3e50;
+}
+
+a.post-tag:hover {
+    color: #42b983;
+}
+
+a.post-tag::before {
+    content: "#";
+    font-weight: bolder;
+    font-size: 1.3em;
+    color: #42b983;
+}
+
 .post-block .post-info a.post-from {
     margin-left: 0.5rem;
     padding: 3px 6px;
@@ -415,11 +446,50 @@ header .nav-list-item a {
 
 .post-block .post-info .post-category a:before {
     content: "·";
+}
 
+.post-block .post-info .post-translations h4 {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    display: flex;
+    float: left;
+}
+
+.post-block .post-info .post-translations {
+    display: flex;
+}
+
+.post-block .post-info .post-translations ul {
+    margin-block-start: 0.3em;
+    margin-block-end: 0.3em;
+    display: flex;
+}
+
+.post-block .post-info .post-translations ul li {
+    display: block;
+    text-align: center;
+    margin: 0 4px;
+    padding: 0.2em 0.6em;
+/*    height: 22px;*/
+    border-radius: 500px;
+    border-bottom: 0.2em solid #3aa373;
+/*    font-size: 14px;*/
+    background-color: #4fc08d;
+    position: relative;
+/*    line-height: 22px;*/
+}
+
+.post-block .post-info .post-translations ul li a {
+    color: #fff;
 }
 
 .post-content {
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', 'Source Han Serif CN', 'Source Han Serif', 'source-han-serif-sc', serif;
+}
+
+.post-content p {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
 }
 
 .post-content h2,.post-content h3,.post-content h4,.post-content h5,.post-content h6 {
@@ -503,6 +573,16 @@ header .nav-list-item a {
     text-align: center;
     background-color: #f66;
     font-family: 'Dosis', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif
+}
+
+.post-content .box {
+    position: relative;
+    margin: 1em 0;
+    padding: 0.75em 1.5em 0.75em 2em;
+    border-left: 4px solid #21bd77;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: #e6f3ed;
 }
 
 #mask {
@@ -963,6 +1043,7 @@ em:lang(zh), em:lang(ja) {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    white-space: nowrap;
 }
 
 /* Change color of dropdown links on hover */

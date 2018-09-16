@@ -2,7 +2,7 @@
     <article class="post-block">
         <h2 class="post-title"><a href="{{ .URL }}" class="post-title-link">{{ .Title }}</a></h2>
         <div class="post-info">
-            {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}}
+            <div> {{- .Date.Format (.Site.Params.dateFormatToUse | default "2006-01-02") -}} {{- with .Params.tags -}}&nbsp;&nbsp;|&nbsp;&nbsp;{{- range . -}}<a class="post-tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>&nbsp;&nbsp;{{- end -}}{{- end -}} </div>
             {{- with .Params.from -}}
                 <a href="{{ . }}" class="post-from", target="_blank">Original Link</a>
             {{- end -}}
@@ -15,8 +15,7 @@
             {{- end -}}
         </div>
         <div class="post-content">
-            {{ .Summary }}
+            <a href="{{ .URL }}" class="read-more">{{ .Summary | plainify }}</a>
         </div>
-        <a href="{{ .URL }}" class="read-more">…</a>
     </article>
 </li>
